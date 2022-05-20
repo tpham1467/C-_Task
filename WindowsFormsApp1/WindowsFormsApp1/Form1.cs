@@ -15,23 +15,29 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+            TienEntities db = new TienEntities();
+
+            GiaTien gt = db.GiaTiens.Find("1");
+            textBox1.Text = gt.C_Money.ToString();
         }
-        public async void CongTien()
+        public async Task CongTien()
         {
-            Task t = new Task(async () =>
+            Task t = new Task( () =>
             {
                 TienEntities db = new TienEntities();
 
                 GiaTien gt = db.GiaTiens.Find("1");
                 gt.C_Money += 2;
-                await db.SaveChangesAsync();
+                 db.SaveChanges();
             });
             t.Start();
             await t;
+         
         }
-         private void Button1_Click(object sender, EventArgs e)
+    
+         private async void Button1_Click(object sender, EventArgs e)
         {
-            CongTien();
+           await CongTien();
 
             TienEntities db = new TienEntities();
 

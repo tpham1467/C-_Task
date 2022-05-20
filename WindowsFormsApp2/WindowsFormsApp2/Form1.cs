@@ -64,7 +64,7 @@ namespace WindowsFormsApp2
                     
                 }
            //     lock ()
-                Task.Delay(500);
+                Task.Delay(100);
             }
         }
     }
