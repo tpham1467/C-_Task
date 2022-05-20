@@ -12,7 +12,7 @@ class Program
                 using var httpClient = new HttpClient();
                 string url = @"http://localhost:80";
                 // Thiết lập các Header nếu cần
-                httpClient.DefaultRequestHeaders.Add("Accept", "text/html,application/xhtml+xml+json");
+                httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
 
                 // Thực hiện truy vấn GET
                 HttpResponseMessage response = await httpClient.GetAsync(url);
@@ -21,7 +21,7 @@ class Program
     });
         t.Start();
             await t;
-       await Task.Delay(10);
+       await Task.Delay(500);
 
         }
     }
